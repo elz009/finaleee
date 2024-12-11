@@ -1,72 +1,49 @@
 public class Main {
-
     public static void main(String[] args) {
 
+        // Creating genres and authors
         Genre pop = new Genre("POP");
-        Author clean_bandit = new Author("Clean", "Bandit");
+        Author cleanBandit = new Author("Clean", "Bandit");
         Author kavinsky = new Author("Kavinsky", "Kavinsky");
         Author mitski = new Author("Mitski", "Matsubara");
 
-//
-        Music symphony = new Music("symphony",  clean_bandit, pop,
-                "https://www.youtube.com/watch?v=aatr_2MstrI", 246, 40);
-        Music night_call = new Music("Night call",kavinsky, pop,
-                "https://www.youtube.com/watch?v=MV_3Dpw-BRY", 256, 55);
-        Music real_hero = new Music("Real Hero", clean_bandit,pop,
-                "https://www.youtube.com/watch?v=BHgYtKkSEDA",267, 60);
-        Music my_love = new Music("My Love Mine All Mine ", mitski, pop,
-                "https://www.youtube.com/watch?v=CwGbMYLjIpQ", 138, 50);
+        // Creating music objects
+        Music birdsOfAFeather = new Music("Symphony", cleanBandit, pop,
+                "https://www.youtube.com/watch?v=V9PVRfjEBTI", 246, 40);
+        Music nightCall = new Music("Night Call", kavinsky, pop,
+                "https://www.youtube.com/watch?v=k2tRMP-V5y4", 256, 55); // Fixed the syntax error here
+        Music realHero = new Music("Real Hero", cleanBandit, pop,
+                "https://www.youtube.com/watch?v=fwfjsDsMuz8", 267, 60);
+        Music myLoveMineAllMine = new Music("My Love Mine All Mine", mitski, pop,
+                "https://www.youtube.com/watch?v=jFBJnbTW_z8", 138, 50);
+        Music neverGoneGiveYouAp = new Music("Never Gone Give You Ap", cleanBandit, pop,
+                "https://www.youtube.com/watch?v=vnYm_kguurE", 212, 40);
 
-        Music never_gone = new Music("Never Gone give you ap", clean_bandit, pop,
-                "https://www.youtube.com/watch?v=dQw4w9WgXcQ", 212, 40);
+        // Creating users
+        User ryan = new User("Ryan Gosling", "POP", 500);
+        User elzar = new User("Elzar Zholdoshev", "Metal", 120);
 
-        User Ryan = new User("Ryan Gosling", "POP", 500);
-        User Temi = new User("Temirlan Emilbekov", "Metal", 120);
+        // Users buying music
+        ryan.buyMusic(nightCall, 5);
+        elzar.buyMusic(birdsOfAFeather, 3);
 
-        Ryan.buyMusic(night_call, 5);
+        // Display balance and playlist
+        ryan.getBalance();
+        ryan.getPlaylist();
+        elzar.getBalance();
+        elzar.getPlaylist();
 
+        // Users listening to music
+        ryan.listenMusic(realHero);
+        ryan.listenMusic(nightCall);
+        elzar.listenMusic(myLoveMineAllMine);
 
-//        Ryan.getBalance();
-//        Ryan.buyMusic(night_call);
-//        Ryan.buyMusic(real_hero);
-//        Ryan.buyMusic(night_call);
-//        Ryan.buyMusic(real_hero);
-//        Ryan.buyMusic(my_love, 5);
-//        Ryan.getBalance();
-//        Ryan.getPlaylist();
+        // Display music stats
+        myLoveMineAllMine.getDownloads();
+        myLoveMineAllMine.getViews();
+        myLoveMineAllMine.getRate();
 
-//        Temi.getBalance();
-//        Temi.buyMusic(symphony);
-//        Temi.buyMusic(night_call);
-//        Temi.buyMusic(my_love);
-//        Temi.buyMusic(my_love);
-//        Temi.buyMusic(my_love);
-//        Temi.cashIn(700);
-//        Temi.buyMusic(my_love, 0);
-//        Temi.buyMusic(my_love, -1);
-//        Temi.buyMusic(my_love, 3);
-//        Temi.buyMusic(subeme);
-//        Temi.buyMusic(real_hero);
-//        Temi.getBalance();
-//        Temi.getPlaylist();
-//
-//        Ryan.listenMusic(real_hero);
-//        Ryan.listenMusic(night_call);
-//        Ryan.listenMusic(my_love);
-//        Ryan.listenMusic(my_love);
-//        Ryan.listenMusic(my_love);
-//        Ryan.listenMusic(my_love);
-//
-//        Temi.listenMusic(my_love);
-//        Temi.listenMusic(my_love);
-//        Temi.listenMusic(my_love);
-//
-//        my_love.getDownloads();
-//        my_love.getViews();
-//        my_love.getRate();
-
-        never_gone.openVideo();
-
+        // Open video for a specific music
+        neverGoneGiveYouAp.openVideo();
     }
-
 }
